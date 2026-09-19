@@ -27,5 +27,6 @@ func newCommands() commands {
 	var cm map[string]func(*state, command) error = map[string]func(*state, command) error{}
 	cmds := commands{cm}
 	cmds.register("login", handlerLogin)
+	cmds.register("register", handlerRegister)
 	return cmds
 }
