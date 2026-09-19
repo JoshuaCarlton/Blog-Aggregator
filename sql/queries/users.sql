@@ -16,3 +16,13 @@ FROM
 WHERE
 name = $1
 LIMIT 1;
+
+-- name: ResetTable :exec
+DELETE FROM users;
+
+
+-- name: GetUsers :many
+SELECT
+    name
+FROM
+    users;
