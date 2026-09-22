@@ -14,7 +14,7 @@ func main() {
 
 	cfg, err := config.Read()
 	if err != nil {
-		fmt.Print(err.Error())
+		fmt.Println(err.Error())
 		os.Exit(1)
 	}
 
@@ -32,7 +32,7 @@ func main() {
 	}
 	db, err := sql.Open("postgres", cfg.DbUrl)
 	if err != nil {
-		fmt.Print(err.Error())
+		fmt.Println(err.Error())
 		os.Exit(1)
 	}
 	dbQueries := database.New(db)
@@ -44,7 +44,7 @@ func main() {
 
 	err = cmds.run(&state, cmd)
 	if err != nil {
-		fmt.Print(err.Error())
+		fmt.Println(err.Error())
 		os.Exit(1)
 	}
 }

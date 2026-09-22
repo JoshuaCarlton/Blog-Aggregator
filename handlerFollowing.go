@@ -3,15 +3,12 @@ package main
 import (
 	"context"
 	"fmt"
+
+	"github.com/JoshuaCarlton/Blog-Aggregator/internal/database"
 )
 
-func handlerFollowing(s *state, _ command) error {
+func handlerFollowing(s *state, _ command, user database.User) error {
 	ctx := context.Background()
-
-	user, err := s.db.GetUser(ctx, s.config.CurrentUserName)
-	if err != nil {
-		return err
-	}
 
 	following, err := s.db.GetFeedFollowsForUser(ctx, user.Name)
 	if err != nil {
