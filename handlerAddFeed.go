@@ -30,6 +30,12 @@ func handlerAddFeed(s *state, cmd command) error {
 		UserID:    user.ID,
 	}
 
-	_, err = s.db.AddFeed(ctx, feedParams)
+	feed, err := s.db.AddFeed(ctx, feedParams)
+	if err != nil {
+		return err
+	}
+
+	cmd.arguments[0] = feed.Url
+	err = handlerFollow(s, cmd)
 	return err
 }
