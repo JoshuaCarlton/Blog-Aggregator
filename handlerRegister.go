@@ -28,7 +28,7 @@ func handlerRegister(s *state, cmd command) error {
 	if err != nil {
 		return err
 	}
-	fmt.Printf("user registered with id: %v, created at: %v, updated at %v, name: %v\n", user.ID, user.CreatedAt, user.UpdatedAt, user.Name)
+	fmt.Printf("user %v registered\n", user.Name)
 	err = config.SetUser(s.config, cmd.arguments[0])
 	if err != nil {
 		return err

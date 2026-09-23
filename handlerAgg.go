@@ -1,19 +1,26 @@
 package main
 
 import (
-	"context"
 	"fmt"
+	"time"
 )
 
-func handlerAgg(_ *state, _ command) error {
-	ctx := context.Background()
+func handlerAgg(s *state, cmd command) error {
 
-	url := "https://www.wagslane.dev/index.xml"
+	if len(cmd.arguments) < 1 {
+		return fmt.Errorf("you must provide the time to wait between requests")
+	}
 
-	feed, err := fetchFeed(ctx, url)
+	timeBetweenRequests, err := time.ParseDuration(cmd.arguments[0])
 	if err != nil {
 		return err
 	}
-	fmt.Println(feed)
-	return nil
+
+	ticker := time.NewTicker(timeBetweenRequests)
+	for ; ; <-ticker.C {
+		err = scrapeFeeds(s)
+		if err != nil {
+			return err
+		}
+	}
 }
