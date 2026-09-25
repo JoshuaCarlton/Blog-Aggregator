@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/JoshuaCarlton/Blog-Aggregator/internal/config"
+	"github.com/JoshuaCarlton/gator/internal/config"
 )
 
 func handlerLogin(s *state, cmd command) error {

@@ -1,4 +1,4 @@
-module github.com/JoshuaCarlton/Blog-Aggregator
+module github.com/JoshuaCarlton/gator
 
 go 1.26.5
 

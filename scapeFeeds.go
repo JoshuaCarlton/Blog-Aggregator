@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/JoshuaCarlton/Blog-Aggregator/internal/database"
+	"github.com/JoshuaCarlton/gator/internal/database"
 )
 
 func scrapeFeeds(s *state) error {

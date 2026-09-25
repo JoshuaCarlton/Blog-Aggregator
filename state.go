@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/JoshuaCarlton/Blog-Aggregator/internal/config"
-	"github.com/JoshuaCarlton/Blog-Aggregator/internal/database"
+	"github.com/JoshuaCarlton/gator/internal/config"
+	"github.com/JoshuaCarlton/gator/internal/database"
 )
 
 type state struct {
