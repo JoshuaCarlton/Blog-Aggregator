@@ -25,11 +25,12 @@ func scrapeFeeds(s *state) error {
 	if err != nil {
 		return err
 	}
-
+	count := 0
 	fmt.Println(rssfeed.Channel.Title)
 	for _, item := range rssfeed.Channel.Items {
-		fmt.Println(item.Title)
+		savePost(s, item, feed.ID)
+		count += 1
 	}
-
+	fmt.Printf("saved %d posts\n", count)
 	return nil
 }
